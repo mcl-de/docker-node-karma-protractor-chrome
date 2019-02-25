@@ -1,7 +1,6 @@
 FROM node:10-alpine
 
-RUN sed -i -e 's/v3.8/edge/g' /etc/apk/repositories \
-    && apk add --no-cache \
+RUN apk add --update --no-cache \
     python \
     build-base \
     git \
@@ -11,7 +10,7 @@ RUN sed -i -e 's/v3.8/edge/g' /etc/apk/repositories \
     nss \
     chromium-chromedriver \
     chromium \
-    && apk add --no-cache --update curl \
+    curl \
     && apk upgrade --no-cache --available
 
 USER node
