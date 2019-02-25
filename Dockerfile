@@ -11,7 +11,7 @@ RUN sed -i -e 's/v3.8/edge/g' /etc/apk/repositories \
     nss \
     chromium-chromedriver \
     chromium \
-    curl \
+    && apk add --no-cache --update curl \
     && apk upgrade --no-cache --available
 
 USER node
